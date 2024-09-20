@@ -627,6 +627,9 @@ class PaddleOCR(predict_system.TextSystem):
             logger.setLevel(logging.INFO)
         self.use_angle_cls = params.use_angle_cls
         lang, det_lang = parse_lang(params.lang)
+        
+        if params.det_lang is not None:
+            det_lang = params.det_lang
 
         # init model dir
         det_model_config = get_model_config("OCR", params.ocr_version, "det", det_lang)
